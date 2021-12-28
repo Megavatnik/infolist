@@ -1,670 +1,93 @@
 <!DOCTYPE html>
- <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="./main.css"><type="text/css">
-  <title>Ростер кампании батлтех</title>
-  <style>
-   
-  
-  </style>
- <script>
-    const text = [
-    'Огонь по штабам-контракт предполагает быстрый рейд на один из штабных комплексов,развернутых на планете.\n',
-    'Задача уничтожить несколько штабных зданий и предотвратить эвакуацию офицеров.\n',
-    'Ожидаемые силы противника-копье мехов,усиленное бронетехникой,стационарная оборона.\n',
-    'Местность холмы. Особенности ожидается шторм. Награда 4000000+1000000 за каждый офицерский конвой.\n',
-    'Силы задействованные в операции: 27145 BV\n',
-    '1.Копье "Шепот Ветра".\n', 
-    'Состав: Сунь Куй Вчай(BJ-3), Ляо Дзядун(BJ-3),Брюс Ли(SDR-7M),Джеки Чан(СDA-3G)\n',
-    '2.Копье "Ярость Дракона".\n', 
-    'Состав: Ляо Ву(HEL-4A),Джон Ву(HEL-3D),LRM Carrier(Standart),LRM Carrier(Standart)\n',
-    '3.Копье "Мстители Тихонова".\n', 
-    'Состав: Наташа Тихонова(VND-3L),Иван Драго(HUR-WOR4L),Поручик Ржевский(RVN-4X)\n',
-    'Статус миссии: Победа\n',
-    'Потери: ВJ-3 уничтожен пилот ранен, Raven-4x уничтожен пилот ранен, HEL-4A уничтожен пилот ранен\n',
-    'HUR-WOR4L уничтожен пилот ранен, VND-3L поврежден пилот ранен,\n',
-    'LRM Carrier уничтожен команда погибла.\n',
-    'Трофеи: Demolisher II Heavy Tank\n',
-];  
-  
-   let line = 0;
-    let count = 0;
-    let result = '';
-    function typeLine() {
-      let interval = setTimeout(
-        () => {
-          result += text[line][count]
-          document.querySelector('pre').innerHTML =result +'|';
-  
-  
-        count++;
-        if (count >= text[line].length) {
-          count = 0;
-          line++;
-          if (line == text.length) {
-            clearTimeout(interval);
-             document.querySelector('pre').innerHTML =result;
-            return true;
-          }
-        }
-        typeLine();
-      }, getRandomInt(getRandomInt(250*2.5)))
-    }
-    typeLine();
-  
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheets" href="css/trening.css">
+    <title>Рынок Конфедерации Капеллы</title>
+<style>
+
+body {
+    background-color: rgb(248, 232, 202);  
   }
- </script>
+
+.info {
+ background: rgb(17, 167, 12);
+ color: rgb(116, 26, 4);
+ text-align: center;
+ border-spacing: 5px;
+ border-collapse: separate;
+ 
+ 
+}
+
+ th  {
+   padding: 5px;
+   font-size: 18px;
+   
+}
+
+ td  {
+  background: rgb(241, 226, 139);
+  
+ }
+
+ .pagetwo { 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 5px;
+    color: rgb(17, 167, 12);
+    position: absolute;
+    top: 55px;
+    left: 80px;
+  }
+
+ .headersix {
+   margin-bottom: 20px;  
+ }
+
+.Market {
+  text-align: center;
+  font-size: 40px;
+  color: green;
+  margin-bottom: 20px;
+}
+</style>
 </head>
 <body>
-
- <header class="header">
- <img src="https://pbs.twimg.com/media/C5M0WK7WAAAAA06.jpg" width="1243" height="561">
- </header>
-  
-    <div class="mission"> 
-    <pre></pre>   
-    </div>
- 
- <div class="herotext">
-   <b>Мехвоины</b>
-</div>
-<div class="table">
-<table>
-    <tr>
-      <th>
-          Мехвоины
-      </th>
-      <th>
-         G 
-        </th>
-      <th>
-          P
-      </th>
-    <th>
-        Мех
-    </th>
-    <th>
-        Тоннаж
-    </th>
-    <th>
-        Тех
-    </th>
-    <th>
-        BV
-    </th>
-    <th>
-        Цена
-    </th>
-    <th>
-        Profile
-    </th>
-    <th>
-        Опыт за Бой/Статус
-    </th>
-    <th>
-        Тренировка Мехвоина
-    </th>
-    <th>
-        Ремонт покупка БК
-    </th>
-    <th>
-        Общие Расходы
-    </th>
-</tr>
-    <tr>
-    <td>
-        <figure><img src="https://cs13.pikabu.ru/avatars/3083/x3083432-1433599084.png" width="150" height="150">
-       <figcaption><b>Поручик Ржевский</b></figcaption>
-    </figure>
-    </td>
-    <td class="Gunnery">
-        1
-    </td>
-    <td class="Piloting">
-        3
-    </td>
-    <td>
-        Raven RVN-4X
-    </td>
-    <td>
-        35
-    </td>
-    <td>D</td>
-    <td>1,574</td>
-    <td>2,552,625</td>
-    <td><a href="http://masterunitlist.info/Unit/Details/2669/raven-rvn-4x"> <img src="https://img2.freepng.ru/20180612/czu/kisspng-mechwarrior-online-mechwarrior-3050-battletech-mec-5b1f4b36aaa2d7.0815780815287775266989.jpg" alt="Raven" width="250" height="230"></a></td>
-    <td>В бою</td>
-    <td class="Training">
-        <ol>
-        <li>G-100k</li>
-        <li>G-100k</li>
-        <li>G-100k</li>
-        <li>G-100k</li>
-        <li>P-50k</li>
-        <li>P-50k</li>
-        <li>P-50k</li>
-        <li></li>
-        <li></li>
-    </ol>
-    </td>
-    <td>0</td>
-    <td class="Price">
-        3,102,625
-    </td>
-    </tr>
-     
-        <tr>
-            <td>
-                <figure><img src="https://i.pinimg.com/736x/95/76/1f/95761f04eb95475bf40b2bca9613d909--backpack-yellow-jackets.jpg" width="150" height="200">
-                    <figcaption><b>Брюс Ли</b></figcaption>
-                 </figure>
-            </td>
-            <td class="Gunnery">
-                1
-            </td>
-            <td class="Piloting">
-                3
-            </td>
-            <td>
-            Spider SDR-7M
-            </td>
-            <td>
-                30
-            </td>
-            <td>D</td>
-            <td>1,192</td>
-            <td>3,115,840</td>
-            <td><a href="http://masterunitlist.info/Unit/Details/3015/spider-sdr-7m"> <img src="https://cfw.sarna.net/wiki/images/9/9f/MWO_Spider_Concept.jpg?timestamp=20180329012708" alt="Spider" width="250" height="280"></a></td>
-            <td>В бою</td>
-            <td class="Training">
-                <ol>
-                    <li>G-100k</li>
-                    <li>G-100k</li>
-                    <li>G-100k</li>
-                    <li>G-100k</li>
-                    <li>P-50k</li>
-                    <li>P-50k</li>
-                    <li>P-50k</li>
-                    <li></li>
-                    <li></li>
-                </ol>
-            </td>
-            <td>0</td>
-            <td class="Price">
-                3,665,840
-             </td> 
-           </tr>
-     </tr>
- 
-      <tr>
-        <td>
-            <figure><img src="https://i.pinimg.com/474x/36/8b/05/368b054c8c694170c085788a44a482c2--sci-fi-characters-main-character.jpg" width="140" height="230">
-                <figcaption><b>Джеки Чан</b></figcaption>
-             </figure>
-        </td>
-        <td class="Gunnery">
-            0
-        </td>
-        <td class="Piloting">
-            2
-        </td>
-        <td>
-            Cicada CDA-3G
-        </td>
-        <td>
-            40
-        </td>
-        <td>E</td>
-        <td>2,807</td>
-        <td>8,841,467</td>
-        <td><a href="http://masterunitlist.info/Unit/Details/595/cicada-cda-3g"> <img src="https://g7.pngresmi.com/preview/872/724/891/mechwarrior-online-mechwarrior-4-mercenaries-battletech-gray-death-legion-mecha-others-thumbnail.jpg" alt="Cicada" width="250" height="280"></a></td>
-        <td>В бою</td>
-        <td class="Training">
-            <ol>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-            </ol>
-        </td>
-        <td>0</td>
-        <td class="Price">
-            9,541,467
-        </td> 
-     </tr>
-
-     <tr>
-     <td>
-        <figure><img src="https://i.pinimg.com/736x/8f/5a/e2/8f5ae26e6c4ca1fb5d1df2308f00b84f.jpg" width="150" height="197">
-            <figcaption><b>Сунь Куй Вчай</b></figcaption>
-         </figure>
-     </td>
-     <td class="Gunnery">
-         0
-     </td>
-     <td class="Piloting">
-         2
-     </td>
-     <td>
-         BlackJack 3
-     </td>
-     <td>
-         45
-     </td>
-     <td>D</td>
-     <td>2,809</td>
-     <td>3,592,375</td>
-     <td><a href="http://masterunitlist.info/Unit/Details/388/blackjack-bj-3"> <img src="https://cfw.sarna.net/wiki/images/c/cd/Blackjack_RGilClan_v04.png?timestamp=20210420215304" alt="BlackJack" width="250" height="240"></a></td>
-     <td>Ремонт</td>
-     <td class="Training">
-        <ol>
-            <li>G-100k</li>
-            <li>G-100k</li>
-            <li>G-100k</li>
-            <li>G-100k</li>
-            <li>G-100k</li>
-            <li>P-50k</li>
-            <li>P-50k</li>
-            <li>P-50k</li>
-            <li>P-50k</li>
-        </ol>
-     </td>
-     <td>501498</td>
-     <td class="Price">
-         4,292,375
-     </td>
-    </tr>
-    <tr>
-        <td>
-            <figure><img src="https://i.pinimg.com/236x/07/4d/5a/074d5a173664216deae4856df6bda667--sci.jpg" width="150" height="210">
-                <figcaption><b>Ляо Дзядун</b></figcaption>
-             </figure>
-        </td>
-        <td class="Gunnery">
-            0
-        </td>
-        <td class="Piloting">
-            2
-        </td>
-        <td>
-            BlackJack 3
-        </td>
-        <td>
-            45
-        </td>
-        <td>D</td>
-        <td>2,809</td>
-        <td>3,592,375</td>
-        <td><a href="http://masterunitlist.info/Unit/Details/388/blackjack-bj-3"> <img src="https://cfw.sarna.net/wiki/images/c/cd/Blackjack_RGilClan_v04.png?timestamp=20210420215304" alt="BlackJack" width="255" height="255"></a></td>
-        <td>Уничтожен</td>
-        <td class="Training">
-            <ol>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-            </ol>
-        </td>
-        <td>0</td>
-        <td class="Price">
-            4,292,375
-        </td> 
-    </tr>
-    <tr>
-        <td>
-            <figure><img src="https://phonoteka.org/uploads/posts/2021-07/1625659942_2-phonoteka-org-p-skafandr-art-krasivo-2.jpg" width="150" height="210">
-                <figcaption><b>Наташа Тихонова</b></figcaption>
-             </figure>
-        </td>
-        <td class="Gunnery">
-            0
-        </td>
-        <td class="Piloting">
-            2
-        </td>
-        <td>
-            Vindicator VND-3L
-        </td>
-        <td>
-            45
-        </td>
-        <td>D</td>
-        <td>2,442</td>
-        <td>3,524,370</td>
-        <td><a href="http://masterunitlist.info/Unit/Details/3426/vindicator-vnd-3l"> <img src="https://cfw.sarna.net/wiki/images/9/96/MWO_Vindicator.png?timestamp=20180122144154" alt="Vindicator3L" width="200"></a></td>
-        <td>Ремонт</td>
-        <td class="Training">
-            <ol>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-            </ol>
-        </td>
-        <td>625204</td>
-        <td class="Price">
-            4,224,370
-        </td> 
-    </tr>
-        <tr>
-            <td>
-                <figure><img src="https://cont.ws/uploads/pic/2020/6/vladimir-andreevsky-sergeant-hp-mask-on-by-vladimir-andreevsky.jpg" width="150" height="180">
-                    <figcaption><b>Иван Драго</b></figcaption>
-                 </figure>
-            </td>
-            <td class="Gunnery">
-                0
-            </td>
-            <td class="Piloting">
-                2
-            </td>
-            <td>
-                Huron Warrior HUR-WO-R4L
-            </td>
-            <td>
-                50
-            </td>
-            <td>D</td>
-            <td>3,381</td>
-            <td>8,279,000</td>
-            <td><a href="http://masterunitlist.info/Unit/Details/1580/huron-warrior-hur-wo-r4l"> <img src="https://cfw.sarna.net/wiki/images/6/67/3055u_Huron_Warrior.jpg?timestamp=20110118203405" alt="Huron Warrior" width="250" height="260"></a></td>
-            <td>В бою</td>
-            <td class="Training">
-                <ol>
-                    <li>G-100k</li>
-                    <li>G-100k</li>
-                    <li>G-100k</li>
-                    <li>G-100k</li>
-                    <li>P-50k</li>
-                    <li>P-50k</li>
-                    <li>P-50k</li>
-                    <li>G-100k</li>
-                    <li>P-50k</li>
-                </ol>
-            </td>
-        </div>
-            <td>0</td>
-            <td class="Price">
-                8,979,000
-            </td>
-        </tr>
-      
-      <tr>
-        <td>
-            <figure><img src="https://i.pinimg.com/474x/26/f8/85/26f885300331847dc8e7c23ea1c1840e--sketchbook-pages-pilots.jpg" width="150" height="210">
-                <figcaption><b>Джон Ву</b></figcaption>
-             </figure>
-        </td>
-        <td class="Gunnery">
-            0
-        </td>
-        <td class="Piloting">
-            2
-        </td>
-        <td>
-            Helios HEL-3D
-        </td>
-        <td>
-            60
-        </td>
-        <td>D</td>
-        <td>3,576</td>
-        <td>5,736,000</td>
-        <td><a href="http://masterunitlist.info/Unit/Details/1464/helios-hel-3d"> <img src="https://cfw.sarna.net/wiki/images/archive/7/75/20101224143326%21Helios.jpg?timestamp=20070329043906" alt="Helios" width="250" height="245"></a></td>
-        <td>В бою</td>
-        <td class="Training">
-            <ol>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-            </ol>
-        </td>
-        <td>0</td>
-        <td class="Price">
-            6,436,000
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <figure><img src="https://sun9-44.userapi.com/impf/c604624/v604624868/390cb/aOKDKjwic6g.jpg?size=320x504&quality=96&sign=7d2b05b7861870535fda303beb6f4a18&c_uniq_tag=AOYwYNULhDwanxjqOcZOQDyT_8zRdqvqPZuQwCIgeAE&type=album" width="150" height="220">
-                <figcaption><b>Ляо Ву</b></figcaption>
-             </figure>
-        </td>
-        <td class="Gunnery">
-            0
-        </td>
-        <td class="Piloting">
-            2
-        </td>
-        <td>
-            Helios HEL-4A
-        </td>
-        <td>
-            60
-        </td>
-        <td>D</td>
-        <td>3,357</td>
-        <td>5,604,800</td>
-        <td><a href="http://masterunitlist.info/Unit/Details/1465/helios-hel-4a"> <img src="https://cfw.sarna.net/wiki/images/archive/7/75/20101224143326%21Helios.jpg?timestamp=20070329043906" alt="Helios" width="250" height="260"></a></td>
-        <td>В бою</td>
-        <td class="Training">
-            <ol>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>G-100k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-                <li>P-50k</li>
-            </ol>
-        </td>
-        <td>0</td>
-        <td class="Price">
-            6,304,800
-        </td>
-    </tr>
-       </table>
-   </div>
-   <div class="herotextone">
-    <b>Бронетехника</b>
-    </div>
-   <header class="header">
-         <img src="https://img-fotki.yandex.ru/get/246231/211331895.37/0_15edaf_e92ed3d6_orig" width="1245" height="600">
+    <header class="headersix">
+    <img src="https://ic.pics.livejournal.com/uncle_ho/11790657/2321870/2321870_original.jpg" width="1238" height="591">
     </header>
     
-    <div>
-    <table class="tabletwo">
-        <tr>
-            <th>
-                Экипаж
-            </th>
-            <th>
-               G 
-              </th>
-            <th>
-                P
-            </th>
-          <th>
-              Техника
-          </th>
-          <th>
-              Тоннаж
-          </th>
-          <th>
-              Тех
-          </th>
-          <th>
-              BV
-          </th>
-          <th>
-              Цена
-          </th>
-          <th>
-              Profile
-          </th>
-          <th>
-              Опыт за Бой/Статус
-          </th>
-          <th>
-              Тренировка Экипажа
-          </th>
-          <th>
-              Ремонт покупка БК
-          </th>
-          <th>
-              Общие Расходы
-          </th>
-        </tr>
-        <tr>
-        <td>
-            <figure class="Lrm"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/5ffa2f77691963.5c98b62b47f6b.png" width="220" height="120">
-           <figcaption><b>Death Commando(3 чел)</b></figcaption>
-        </figure>
-        </td>
-        <td class="Gunnery">
-            1
-        </td>
-        <td class="Piloting">
-            3
-        </td>
-        <td>
-            LRM Carrier (Standard)
-        </td>
-        <td>
-            60
-        </td>
-        <td>B</td>
-        <td>1,599</td>
-        <td>1,872,000</td>
-        <td><a href="http://masterunitlist.info/Unit/Details/1952/lrm-carrier-standard"> <img src="https://cfw.sarna.net/wiki/images/a/ad/LRM_Carrier.jpg?timestamp=20090406135623" alt="Lrm Carrier" width="220" height="160"></a></td>
-        <td>В бою</td>
-        <td class="Training">
-            <ol>
-            <li>G-100k</li>
-            <li>G-100k</li>
-            <li>G-100k</li>
-            <li>G-100k</li>
-            <li>P-50k</li>
-            <li>P-50k</li>
-            <li>P-50k</li>
-            <li></li>
-            <li></li>
-        </ol>
-        </td>
-        <td>0</td>
-        <td class="Price">
-            2,422,000
-        </td>
-        </tr>
+    <div class="Market"
+    <span class="Market">Рынок Конфедерации Каппелы</span>
+    </div>
+    <table class="info">
+    <tr>
+    <th>Название</th>
+    <th>Цена</th>
+    <th>Техуровень</th>
+    <th>Количество</th>
     </tr>
     <tr>
-    <td>
-        <figure class="Lrm"><img src="https://pbs.twimg.com/media/EpnJbyVXMAA5DmQ.jpg" width="220" height="120">
-       <figcaption><b>Красные Драконы(3 чел)</b></figcaption>
-    </figure>
-    </td>
-    <td class="Gunnery">
-        1
-    </td>
-    <td class="Piloting">
-        3
-    </td>
-    <td>
-        LRM Carrier (Standard)
-    </td>
-    <td>
-        60
-    </td>
-    <td>B</td>
-    <td>1,599</td>
-    <td>1,872,000</td>
-    <td><a href="http://masterunitlist.info/Unit/Details/1952/lrm-carrier-standard"> <img src="https://cfw.sarna.net/wiki/images/a/ad/LRM_Carrier.jpg?timestamp=20090406135623" alt="Lrm Carrier" width="220" height="160"></a></td>
-    <td>В бою</td>
-    <td class="Training">
-        <ol>
-        <li>G-100k</li>
-        <li>G-100k</li>
-        <li>G-100k</li>
-        <li>G-100k</li>
-        <li>P-50k</li>
-        <li>P-50k</li>
-        <li>P-50k</li>
-        <li></li>
-        <li></li>
-    </ol>
-    </td>
-    <td>0</td>
-    <td class="Price">
-        2,422,000
-    </td>
-    </tr>
-     </table>
-    
-    </div>
-   <header class="headerthree">
-       <img src="https://cfw.sarna.net/wiki/images/a/a1/Capellan_Confederation_Logo_New.png?timestamp=20151210205638" alt="Logo" width="100">
-   </header>
-   <div class="Faction">
-      <header class="headerfour">
-     <figure class="Bank"><img src="https://cfw.sarna.net/wiki/images/4/45/CapellanCommonalityBank.jpg?timestamp=20161028171538">
-     <figcaption><b>Центральный Банк Конфедерации Каппелы</b><br><br><b>Бюджет Фракции: 16,317,148 CB</b></br></figcaption>
-    </figure>    
-      </header> 
-     <div>
-     <table class="tablethree">
-     <tr>
-         <th class="credit" colspan="4">Расходы<br><br><b>Предыдущий Бюджет: 16,317,148 CB</b></br></th>
-         </tr>
-        <tr>
-         <td><b>Покупка техники</b><br><br><b>48,582,852</b></br></td>
-         <td><b>Ремонт/Тех.оснащение</b><br><br><b>0</td></b></br></td>
-         <td><b>Тренировка Солдат</b><br><br><b>7,100,000</b></br></td>
-         <td><b>Страховка и доп.опции</b><br><br><b>0</b></br></td>
-        </tr>
-     </table>
-        <div>
-        <table class="tablefour">
-        <tr>
-        <th class="credit" colspan="4">Доходы<br><br><b>Предыдущий Бюджет: 16,317,148 CB</b></br></th>
-        </tr>
-        <tr>
-        <td><b>Продажа техники</b><br><br><b>0</b></br></td>
-        <td><b>Продажа запчастей</b><br><br><b>0</td></b></br></td>
-        <td><b>Награды  Миссии</b><br><br><b>12,000,000</b></br></td>
-        <td><b>Трофеи</b><br><br><br><b>7,190,000</b></br></td>
-        </tr>
-      </table>
-        <div class="menu"></div>
-        <b><a href= page2.html class="pagetwo">Отчеты о боях</a>
-    
-    </div>
-    
-    <script src="js/script.js"></script>
-   </body>
-    </html>
+    <td><br><b>Cossack C-SK1</b></br>  <a href="http://masterunitlist.info/Unit/Details/703/cossack-c-sk1"> <img src="https://cfw.sarna.net/wiki/images/e/e6/Cossack.jpg?timestamp=20210123210334" alt="Cossack" width="350" height="380"></a></td>
+    <td>2,362,440</td>
+    <td><img src="C:\Users\Anton\.vscode\Cossack.png" alt="Cossack" width="680" height="439"</td>
+    <td>2</td>
+    </tr>   
+    <tr>
+    <td><br><b>Flea 17 FLE-17</b></br>  <a href="http://masterunitlist.info/Unit/Details/1137/flea-fle-17"> <img src="https://cfw.sarna.net/wiki/images/7/78/MWO_Flea.png?timestamp=20180302034729" alt="Flea" width="350" height="380"></a></td>
+    <td>1,728,000</td>
+    <td><img  src="C:\Users\Anton\.vscode\Flea17.png" alt="Flea17" width="680" height="439"></td>
+    <td>4</td>
+   </tr>
+   </table>
+   
+   <div class="menu">
+   <b><a href= index.html class="pagetwo">На главную</a>
+   </div>
+
+
+</body>
+</html>
